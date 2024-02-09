@@ -1,0 +1,215 @@
+{
+    "Enabled": true,
+    "GenerateScavProfileOnStartup": true,
+    "ScavPlayCooldown": 0,
+    "Savage": {
+        "Pouch": {
+            "Enabled": false,
+            "ContainerItemFilter": true,
+            "ContainerSizeWidth": 2,
+            "ContainerSizeHeight": 2
+        },
+        "Durability": {
+            "Enabled": true,
+            "ChangeEquippedWeaponOnly": false,
+            "MinPercent": 50,
+            "MaxPercent": 70
+        },
+        "Energy": 100,
+        "Hydration": 100,
+        "HealthMultiplier": {
+            "Head": 1.0,
+            "Chest": 1.0,
+            "Stomach": 1.0,
+            "LeftArm": 1.0,
+            "RightArm": 1.0,
+            "LeftLeg": 1.0,
+            "RightLeg": 1.0
+        },
+        "RoleList": [
+            "assault"
+        ],
+        "RandomAppearance": {
+            "Enabled": true,
+            "RandomizeEveryParts": false,
+            "KeepOriginalParts": {
+                "Head": true,
+                "Body": false,
+                "Hands": false,
+                "Feet": false,
+                "Voice": true,
+                "Name": true
+            },
+            "BlacklistRole": [
+                "gifter",
+                "test",
+                "bosstest",
+                "followertest",
+                "followertagilla",
+                "followergluharsnipe",
+                "followerboar"
+            ]
+        },
+        "Skills": {
+            "BotReload": 0
+        }
+    },
+    "Raider": {
+        "Pouch": {
+            "Enabled": false,
+            "ContainerItemFilter": true,
+            "ContainerSizeWidth": 3,
+            "ContainerSizeHeight": 3
+        },
+        "Durability": {
+            "Enabled": true,
+            "ChangeEquippedWeaponOnly": false,
+            "MinPercent": 66,
+            "MaxPercent": 80
+        },
+        "BaseChance": 25.0,
+        "ScavKarmaChanceMultiplierByPercent": 0.6,
+        "_ScavKarmaChanceMultiplierByPercent_Desc1": "Value [0.6 = 60%] and if your [Scav Karma] is 0.5 with [BaseChance] 25.0 ==> 32.5 (+ 7.5 to BaseChance)",
+        "_ScavKarmaChanceMultiplierByPercent_Desc2": "BaseChance * ( 1.0 + (Scav Karma * ScavKarmaChanceMultiplierByPercent) )",
+        "Energy": 100,
+        "Hydration": 100,
+        "HealthMultiplier": {
+            "Head": 1.0,
+            "Chest": 1.0,
+            "Stomach": 1.0,
+            "LeftArm": 1.0,
+            "RightArm": 1.0,
+            "LeftLeg": 1.0,
+            "RightLeg": 1.0
+        },
+        "RoleList": [
+            "pmcbot",
+            "cursedassault",
+            "followerbully",
+            "followergluharassault",
+            "followergluharscout",
+            "followergluharsecurity",
+            "followerkojaniy",
+            "followersanitar",
+            "followertagilla",
+            "sectantpriest",
+            "gifter",
+            "exUsec",
+            "followerbirdeye",
+            "followerbigpipe",
+            "followerboar"
+        ],
+        "RandomAppearance": {
+            "Enabled": true,
+            "RandomizeEveryParts": true,
+            "KeepOriginalParts": {
+                "Head": true,
+                "Body": false,
+                "Hands": false,
+                "Feet": false,
+                "Voice": "bear",
+                "Name": "pmcbot"
+            },
+            "BlacklistRole": [
+                "gifter",
+                "test",
+                "bosstest",
+                "followertest",
+                "followertagilla",
+                "followergluharsnipe",
+                "bossbully",
+                "bossgluhar",
+                "bosskilla",
+                "bosskojaniy",
+                "bosssanitar",
+                "bosstagilla",
+                "sectantwarrior",
+                "bossknight",
+                "bossboar",
+                "bossBoarsniper"
+            ]
+        },
+        "Skills": {
+            "BotReload": 0
+        }
+    },
+    "Boss": {
+        "Pouch": {
+            "Enabled": false,
+            "ContainerItemFilter": false,
+            "ContainerSizeWidth": 4,
+            "ContainerSizeHeight": 3
+        },
+        "Durability": {
+            "Enabled": true,
+            "ChangeEquippedWeaponOnly": true,
+            "MinPercent": 75,
+            "MaxPercent": 90
+        },
+        "BaseChance": 6.9,
+        "ScavKarmaChanceMultiplierByPercent": 1.5,
+        "_ScavKarmaChanceMultiplierByPercent_Desc1": "Value [1.5 = 150%] and if your [Scav karma] is 0.5 with [BaseChance] 6.9  ==>  12.0 (+ 5.1 to BaseChance)",
+        "_ScavKarmaChanceMultiplierByPercent_Desc2": "BaseChance * ( 1.0 + (Scav Karma * ScavKarmaChanceMultiplierByPercent) )",
+        "Energy": 100,
+        "Hydration": 100,
+        "HealthMultiplier": {
+            "Head": 1.0,
+            "Chest": 1.0,
+            "Stomach": 1.0,
+            "LeftArm": 1.0,
+            "RightArm": 1.0,
+            "LeftLeg": 1.0,
+            "RightLeg": 1.0
+        },
+        "RoleList": [
+            "bossbully",
+            "bossgluhar",
+            "bosskilla",
+            "bosskojaniy",
+            "bosssanitar",
+            "bosstagilla",
+            "sectantwarrior",
+            "bossknight",
+            "bossboar"
+        ],
+        "RandomAppearance": {
+            "Enabled": true,
+            "RandomizeEveryParts": false,
+            "KeepOriginalParts": {
+                "Head": true,
+                "Body": false,
+                "Hands": false,
+                "Feet": false,
+                "Voice": true,
+                "Name": true
+            },
+            "BlacklistRole": [
+                "gifter",
+                "test",
+                "bosstest",
+                "followertest",
+                "followertagilla",
+                "followergluharsnipe",
+                "assault",
+                "pmcbot",
+                "bear",
+                "usec",
+                "cursedassault",
+                "followerbully",
+                "followergluharassault",
+                "followergluharscout",
+                "followergluharsecurity",
+                "followerkojaniy",
+                "followersanitar",
+                "sectantpriest",
+                "exUsec",
+                "followerbirdeye",
+                "followerbigpipe",
+                "followerboar"
+            ]
+        },
+        "Skills": {
+            "BotReload": 0
+        }
+    }
+}
