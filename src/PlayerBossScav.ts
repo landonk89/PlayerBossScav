@@ -91,8 +91,11 @@ export class PlayerBossScav extends PlayerScavGenerator
         }
         else
         {
-            scavRole = modConfig.Savage.RoleList[this.randomUtil.getInt(0, modConfig.Savage.RoleList.length-1)].toString().toLowerCase();
-            roleType = "Savage";
+            //scavRole = modConfig.Savage.RoleList[this.randomUtil.getInt(0, modConfig.Savage.RoleList.length-1)].toString().toLowerCase();
+            //roleType = "Savage";
+            // TODO: rework this a bit, I don't want to play a regular scav :(
+            scavRole = modConfig.Boss.RoleList[this.randomUtil.getInt(0, modConfig.Boss.RoleList.length-1)].toString().toLowerCase();
+            roleType = "Boss";
         }
 
         if (scavRole === "gifter" && botTable["gifter"].inventory.Ammo === undefined)
@@ -111,7 +114,7 @@ export class PlayerBossScav extends PlayerScavGenerator
             playerScavKarmaSettings.botTypeForLoot = scavRole;
         }
 
-        this.logger.debug(`PLAYERBOSSSCAV: generated player scav loadout with karma level ${scavKarmaLevel}`)
+        this.logger.debug(`${this.modName}: generated player scav loadout with karma level ${scavKarmaLevel}`)
 
         // edit baseBotNode values
         const baseBotNode: IBotType = this.constructBotBaseTemplateWithRole(scavRole, roleType);
@@ -124,7 +127,13 @@ export class PlayerBossScav extends PlayerScavGenerator
         scavData.savage = null;
         scavData.aid = pmcData.aid;
         scavData.TradersInfo = this.jsonUtil.clone(pmcData.TradersInfo);
-        scavData.Info.Settings = {} as Settings;
+        scavData.Info.Settings = { // added for companion bepinex plugin
+            Role: scavRole,
+            BotDifficulty: "normal",
+            Experience: 999999999,
+            StandingForKill: 0,
+            AggressorBonus: 0
+        };
         scavData.Info.Bans = [];
         scavData.Info.RegistrationDate = pmcData.Info.RegistrationDate;
         scavData.Info.GameVersion = pmcData.Info.GameVersion;

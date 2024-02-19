@@ -1,8 +1,9 @@
 import { DependencyContainer } from "tsyringe";
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
 import { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
+//import { DynamicRouterModService } from "@spt-aki/services/mod/dynamicRouter/DynamicRouterModService";
 import { PlayerScavGenerator } from "@spt-aki/generators/PlayerScavGenerator";
 import { SaveServer } from "@spt-aki/servers/SaveServer";
 import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
@@ -19,12 +20,10 @@ import { BotGeneratorHelper } from "@spt-aki/helpers/BotGeneratorHelper";
 import { BotWeaponGeneratorHelper } from "@spt-aki/helpers/BotWeaponGeneratorHelper";
 import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
 import { HashUtil } from "@spt-aki/utils/HashUtil";
-
 import { PlayerBossScav } from "./PlayerBossScav";
 import pkg from "../package.json";
 import modConfig from "../config/config.json";
 
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
 class Mod implements IPreAkiLoadMod//IPostDBLoadMod
 {
     protected modName = `${pkg.author}-${pkg.name}`;
@@ -33,12 +32,11 @@ class Mod implements IPreAkiLoadMod//IPostDBLoadMod
     //public postDBLoad(container: DependencyContainer): void
     public preAkiLoad(container: DependencyContainer): void {
         Mod.container = container;
-        //container.register<PlayerBossScav>("PlayerBossScav", PlayerBossScav);
-        //container.register("PlayerScavGenerator", {useToken: "PlayerBossScav"});
-        //const staticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService");
 
         const logger: ILogger = container.resolve<ILogger>("WinstonLogger");
-        const staticRouterModService = Mod.container.resolve<StaticRouterModService>("StaticRouterModService");
+        const staticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService");
+        //const dynamicRouterModService = container.resolve<DynamicRouterModService>("DynamicRouterModService");
+        //const profileHelper = container.resolve<ProfileHelper>("ProfileHelper")
         logger.info(`Loading: ${this.modName} ${pkg.version}${modConfig.Enabled === true ? "" : " [Disabled]"}`);
 
         if (!modConfig?.Enabled) {
@@ -51,6 +49,26 @@ class Mod implements IPreAkiLoadMod//IPostDBLoadMod
                 return this.generate(sessionID);
             }
         }, { frequency: "Always" });
+
+        //just doing some learning here, don't mind me
+        /*
+        dynamicRouterModService.registerDynamicRouter(
+            "CustomRouter",
+            [
+                {
+                    url: "/playerscav/role",
+                    action: (url, info, sessionId, output) => 
+                    {
+                        const currentScav = profileHelper.getScavProfile(sessionId);
+                        const currentRole = currentScav.Info.Settings.Role;
+                        logger.info(`${this.modName}: current playerscav role ${currentRole}`);
+                        return JSON.stringify({role: `${currentRole}`});
+                    }
+                }
+            ],
+            "pbs"
+        );
+        */
 
         // Hook game start router
         if (modConfig.GenerateScavProfileOnStartup === true) {

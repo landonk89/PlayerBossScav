@@ -5,17 +5,17 @@
 
 	"Savage": {
 		"Pouch": {
-			"Enabled": false,
-			"ContainerItemFilter": true,
-			"ContainerSizeWidth": 2,
-			"ContainerSizeHeight": 2
+			"Enabled": true,
+			"ContainerItemFilter": false,
+			"ContainerSizeWidth": 6,
+			"ContainerSizeHeight": 8
 		},
 
 		"Durability": {
 			"Enabled": true,
 			"ChangeEquippedWeaponOnly": false,
-			"MinPercent": 50,
-			"MaxPercent": 70
+			"MinPercent": 95,
+			"MaxPercent": 100
 		},
 
 		"Energy": 100,
@@ -36,7 +36,7 @@
 		],
 
 		"RandomAppearance": {
-			"Enabled": true,
+			"Enabled": false,
 			"RandomizeEveryParts": false,
 			"KeepOriginalParts": {
 				"Head": true,
@@ -64,17 +64,17 @@
 
 	"Raider": {
 		"Pouch": {
-			"Enabled": false,
-			"ContainerItemFilter": true,
-			"ContainerSizeWidth": 3,
-			"ContainerSizeHeight": 3
+			"Enabled": true,
+			"ContainerItemFilter": false,
+			"ContainerSizeWidth": 6,
+			"ContainerSizeHeight": 8
 		},
 
 		"Durability": {
 			"Enabled": true,
 			"ChangeEquippedWeaponOnly": false,
-			"MinPercent": 66,
-			"MaxPercent": 80
+			"MinPercent": 95,
+			"MaxPercent": 100
 		},
 
 		"BaseChance": 25.0,
@@ -112,7 +112,7 @@
 		],
 
 		"RandomAppearance": {
-			"Enabled": true,
+			"Enabled": false,
 			"RandomizeEveryParts": true,
 			"KeepOriginalParts": {
 				"Head": true,
@@ -149,17 +149,17 @@
 
 	"Boss": {
 		"Pouch": {
-			"Enabled": false,
+			"Enabled": true,
 			"ContainerItemFilter": false,
-			"ContainerSizeWidth": 4,
-			"ContainerSizeHeight": 3
+			"ContainerSizeWidth": 6,
+			"ContainerSizeHeight": 8
 		},
 
 		"Durability": {
 			"Enabled": true,
 			"ChangeEquippedWeaponOnly": true,
-			"MinPercent": 75,
-			"MaxPercent": 90
+			"MinPercent": 95,
+			"MaxPercent": 100
 		},
 
 		"BaseChance": 6.9,
@@ -192,7 +192,7 @@
 		],
 
 		"RandomAppearance": {
-			"Enabled": true,
+			"Enabled": false,
 			"RandomizeEveryParts": false,
 			"KeepOriginalParts": {
 				"Head": true,
