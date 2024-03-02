@@ -3,7 +3,6 @@ import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
 import { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
-//import { DynamicRouterModService } from "@spt-aki/services/mod/dynamicRouter/DynamicRouterModService";
 import { PlayerScavGenerator } from "@spt-aki/generators/PlayerScavGenerator";
 import { SaveServer } from "@spt-aki/servers/SaveServer";
 import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper";
@@ -17,7 +16,6 @@ import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
 import { RandomUtil } from "@spt-aki/utils/RandomUtil";
 import { LocalisationService } from "@spt-aki/services/LocalisationService";
 import { BotGeneratorHelper } from "@spt-aki/helpers/BotGeneratorHelper";
-import { BotWeaponGeneratorHelper } from "@spt-aki/helpers/BotWeaponGeneratorHelper";
 import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
 import { HashUtil } from "@spt-aki/utils/HashUtil";
 import { PlayerBossScav } from "./PlayerBossScav";
@@ -49,26 +47,6 @@ class Mod implements IPreAkiLoadMod//IPostDBLoadMod
                 return this.generate(sessionID);
             }
         }, { frequency: "Always" });
-
-        //just doing some learning here, don't mind me
-        /*
-        dynamicRouterModService.registerDynamicRouter(
-            "CustomRouter",
-            [
-                {
-                    url: "/playerscav/role",
-                    action: (url, info, sessionId, output) => 
-                    {
-                        const currentScav = profileHelper.getScavProfile(sessionId);
-                        const currentRole = currentScav.Info.Settings.Role;
-                        logger.info(`${this.modName}: current playerscav role ${currentRole}`);
-                        return JSON.stringify({role: `${currentRole}`});
-                    }
-                }
-            ],
-            "pbs"
-        );
-        */
 
         // Hook game start router
         if (modConfig.GenerateScavProfileOnStartup === true) {
@@ -127,7 +105,6 @@ class Mod implements IPreAkiLoadMod//IPostDBLoadMod
             Mod.container.resolve<DatabaseServer>("DatabaseServer"),
             Mod.container.resolve<HashUtil>("HashUtil"),
             Mod.container.resolve<ItemHelper>("ItemHelper"),
-            Mod.container.resolve<BotWeaponGeneratorHelper>("BotWeaponGeneratorHelper"),
             Mod.container.resolve<BotGeneratorHelper>("BotGeneratorHelper"),
             Mod.container.resolve<SaveServer>("SaveServer"),
             Mod.container.resolve<ProfileHelper>("ProfileHelper"),
